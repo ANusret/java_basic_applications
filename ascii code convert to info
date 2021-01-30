@@ -1,6 +1,6 @@
 package ANusret;
 import java.util.Scanner;
-public class Main {
+public class ANusret {
     public static void main(String[] args) {
         Scanner input=new Scanner (System.in);System.out.println("Lütfen bir karekter giriniz:");
         char character = input.next().charAt(0); //karekter alınır
