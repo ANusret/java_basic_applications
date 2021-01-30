@@ -1,0 +1,22 @@
+package ANusret;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input=new Scanner (System.in);System.out.println("Lütfen bir karekter giriniz:");
+        char character = input.next().charAt(0); //karekter alınır
+        int asci = (int) character; // asci kodunu aldık
+        if ((asci>=65 && asci<=90) || (asci>=97 && asci<=122)) {
+            System.out.println("Girilen karekter harftir");
+        }
+        else if(asci>=47 && asci<=58)
+        {
+            System.out.println("Girilen karekter rakamdır");
+        }
+        else
+        {
+            System.out.println("Diğer karekter");
+        }
+
+    }
+
+}
