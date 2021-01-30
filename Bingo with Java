@@ -1,0 +1,56 @@
+package tombala;
+import java.util.Random;
+import java.util.Scanner;
+public class Tombala {
+    public class tekrar{
+    }
+    public static void main(String[] args) {
+        Random r=new Random();
+        Scanner input=new Scanner (System.in);
+        System.out.println("Geliştiren: Ahmet Nusret");
+        System.out.println("--------------------------------");
+        System.out.println("Kaç oyuncu ile oynuyorsunuz:");
+        int oyuncusayisi=input.nextInt(); //Oyuncu sayısını alıyoruz
+        //diziler
+        String[] isimler=new String[oyuncusayisi];
+        int[][]sayi=new int[oyuncusayisi][15]; 
+        for (int i = 0; i <oyuncusayisi; i++) { //oyuncuları döndürüyoruz
+            System.out.println((i+1)+" ci oyuncunun ismini giriniz:");
+            isimler[i]=input.next(); //ismi alıyoruz
+            for (int j = 0; j < 15; j++) { //sayıları döndürüyoruz
+                do{
+                System.out.println(isimler[i]+" isimli oyuncu "+(j+1)+" inci sayısını giriyor (1-49) arası.");
+                sayi[i][j]=input.nextInt();}while(sayi[i][j]<1 || sayi[i][j]>49);
+            }
+        }
+        //oyuncuların isimlerini ve kartlarındaki sayıları yazıyoruz
+        for (int i = 0; i < oyuncusayisi; i++) {
+            System.out.print(isimler[i]+" : ");
+            for (int j = 0; j < 15; j++) {
+                System.out.print(sayi[i][j]+" - ");
+            }
+            System.out.println("");
+        }
+        for (int i = 0; i < 2000; i++) {
+            int cikansayi=r.nextInt(50); //random bir sayı istiyoruz
+            System.out.println("Torbadan çıkan sayııııı: "+cikansayi);
+            for (int j = 0; j < oyuncusayisi; j++) {
+                for (int k = 0; k < 15; k++) {
+                    if(cikansayi==sayi[j][k]){
+                        sayi[j][k]=0; //random sayı ile karttaki sayılardan biri eşitse o sayı 0 a dönüyor
+                    }
+                }
+            }
+            //oyuncuların isimlerini ve kartlarındaki sayıları yazıyoruz
+            for (int j = 0; j < oyuncusayisi; j++) {
+                System.out.print(isimler[j]+" : ");
+                for (int k = 0; k < 15; k++) {
+                    System.out.print(sayi[j][k]+" - ");
+                }
+            System.out.println("");
+            }
+            System.out.println("Rastgele bir yuşu enterlayınız."); //devam etmek için bir tuşa basınız
+            String b=input.next();
+            }
+    }
+}
