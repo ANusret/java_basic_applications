@@ -1,0 +1,111 @@
+package ANusret;
+import java.util.Random;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+       Scanner input=new Scanner(System.in);
+       Random r=new Random();
+       int can=5; //canıızı 5 olarak tanımladık
+       while(can>0) {  //can 0 veya 0 altında olana kadar devam edecek bir while döngüsü açtık
+            System.out.println("Canınız: "+can);
+            System.out.println("İşlem seçiniz : ");
+            
+            int secim;
+            
+            
+            do{
+            System.out.println("1-) Toplama : ");
+            System.out.println("2-) Çıkarma : ");
+            System.out.println("3-) Çarpma : ");
+            System.out.println("4-) Bölme : ");
+            System.out.println("5-) Çıkış : ");
+            secim = input.nextInt(); //kullanıcıdan bir seçenek aldık
+            }while(secim<1 || secim > 5); //aldığımız seçeneğin işlemlerimize hitap etmesi için belirtilen aralıkta olması lazım değil ise do-while döngüsü tekrar edecek
+        
+        
+            if(secim==1){
+                int a=r.nextInt(100); //a sayısına rastgele bir sayı atadık 0-100 arasında
+                int b=r.nextInt(100); //b sayısına rastgele bir sayı atadık 0-100 arasında
+                int sonuc=a+b;
+                System.out.println(a+" + "+b+" = ?");
+                int cevap=input.nextInt();
+                if(cevap==sonuc){
+                    System.out.println("Doğru cevap.");
+                    System.out.println("Canınız: "+can);
+                }
+                else{
+                    System.out.println("Yanlış cevap.");
+                    can--;  //cevap yanlış ise canı bir azalttık
+                    System.out.println("Canınız: "+can);
+                }
+            }
+            
+            
+            if(secim==2){
+                int a, b;
+                do{
+                a=r.nextInt(100); //a sayısına rastgele bir sayı atadık 0-100 arasında
+                b=r.nextInt(100);}while(a<b);  //b sayısına rastgele bir sayı atadık 0-100 arasında ve a, b den küçük olursa çıkarma işlemi -(eksi) sonuç vereceğinden do-while döngüsü tekrar edecek 
+                int sonuc=a-b;
+                System.out.println(a+" - "+b+" = ?");
+                int cevap=input.nextInt();
+                if(cevap==sonuc){
+                    System.out.println("Doğru cevap.");
+                    System.out.println("Canınız: "+can);
+                }
+                else{
+                    System.out.println("Yanlış cevap.");
+                    can--;  //cevap yanlış ise canı bir azalttık
+                    System.out.println("Canınız: "+can);
+                }
+            }
+            
+            
+            if(secim==3){
+                int a=r.nextInt(15);  //a sayısına rastgele bir sayı atadık 0-15 arasında
+                int b=r.nextInt(15);  //b sayısına rastgele bir sayı atadık 0-15 arasında
+                int sonuc=a*b;
+                System.out.println(a+" x "+b+" = ?");
+                int cevap=input.nextInt();
+                if(cevap==sonuc){
+                    System.out.println("Doğru cevap.");
+                    System.out.println("Canınız: "+can);
+                }
+                else{
+                    System.out.println("Yanlış cevap.");
+                    can--;  //cevap yanlış ise canı bir azalttık
+                    System.out.println("Canınız: "+can);
+                }
+            }
+            
+            
+            if(secim==4){
+                int a, b;
+                do{
+                a=r.nextInt(100);  //a sayısına rastgele bir sayı atadık 0-100 arasında
+                b=r.nextInt(15);}while(a%b!=0); //b sayısına rastgele bir sayı atadık 0-15 arasında ve bu sayı a sayısını bölünce kalan 0 olmuyorsa do-while döngüsü tekrar edecek
+                int sonuc=a/b;
+                System.out.println(a+" / "+b+" = ?");
+                int cevap=input.nextInt();
+                if(cevap==sonuc){
+                    System.out.println("Doğru cevap.");
+                    System.out.println("Canınız: "+can);
+                }
+                else{
+                    System.out.println("Yanlış cevap.");
+                    can--;  //cevap yanlış ise canı bir azalttık
+                    System.out.println("Canınız: "+can);
+                }
+            }
+            
+            
+            if(secim==5){
+                break; //döngüyü bitir demek içinde bulunduğu döngü en baştaki while döngüsüdür. While döngüsü biterse işlemler biter, uygulamadan çıkılmış olur
+            }
+                
+        
+       }
+        
+    }
+    
+}
