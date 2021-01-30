@@ -49,7 +49,7 @@ public class Tombala {
                 }
             System.out.println("");
             }
-            System.out.println("Rastgele bir yuşu enterlayınız."); //devam etmek için bir tuşa basınız
+            System.out.println("Rastgele bir tuşu enterlayınız."); //devam etmek için bir tuşa basınız
             String b=input.next();
             }
     }
