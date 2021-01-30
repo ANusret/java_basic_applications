@@ -1,6 +1,6 @@
-package araya.koyanprogram;
+package ANusret;
 import java.util.Scanner;
-public class ArayaKoyanprogram {
+public class ANusret {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         String ve = "&";
