@@ -1,0 +1,30 @@
+package araya.koyanprogram;
+import java.util.Scanner;
+public class ArayaKoyanprogram {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        String ve = "&";
+        String nokta = ".";
+        String bos = " ";
+        String virgul = ",";
+        System.out.println("cümle giriniz : ");
+        String a = s.nextLine(); //cümle aldık
+        String toplam = ""; //toplam diye boş bir String tanımladık bu String'in içini dolduracağız 
+        
+        for (int i = 0; i <a.length() ; i++) { //cümledeki harfleri soldan sağa gezmemizi sağlayan for
+
+            if (a.charAt(i)==nokta.charAt(0)|| a.charAt(i)==bos.charAt(0) || a.charAt(i)==virgul.charAt(0)) { 
+            //eğer for döngüsünde olduğumuz karakter ".", " " veya "," ise buraya giriyoruz
+                toplam += ve.charAt(0); //for döngüsündeki karakter & karakterine dönüşüyor ve toplama ekleniyor 
+            }
+
+            else{ //eğer for döngüsünde olduğumuz karakter ".", " " veya "," değil ise buraya giriyoruz
+                toplam += a.charAt(i); //for döngüsündeki karakter toplama ekleniyor 
+            }
+        }
+        
+        System.out.println(""); //güzel görünüm için bir satır alta geçiyoruz
+        System.out.print(toplam); //ve tek tek karakterleri eklediğimiz toplam'ı yazdırıyoruz
+        
+    }
+}
