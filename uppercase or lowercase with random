@@ -1,0 +1,24 @@
+package ANusret;
+import java.util.Random;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    Random r = new Random();
+    
+    System.out.println("Cümle giriniz: ");
+    String cümle = input.nextLine(); //kullanıcıdan cümle aldık
+    
+    for (int i = 0; i < cümle.length(); i++) { //for da soldan sağa harfleri geziyoruz
+        int rasgele = r.nextInt(26); //rastgele bir sayı atadık 0-25 arasında (0 ve 25 dahil)
+        if (rasgele%2==0) { //eğer rastgele sayısını 2 ye bölünce 0 kalanlı bir bölme işlemi oluyorsa buraya gir 
+            System.out.print(Character.toUpperCase(cümle.charAt(i))); //for'daki karakteri büyük yaz
+        }
+        else{
+            System.out.print(Character.toLowerCase(cümle.charAt(i))); //for'daki karateri küçük yaz
+            }
+        }
+
+    }
+
+}
