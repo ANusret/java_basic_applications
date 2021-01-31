@@ -1,5 +1,6 @@
 package ANusret;
 import java.util.Scanner;
+import java.util.Arrays;
 public class ANusret {
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
@@ -31,6 +32,10 @@ public class ANusret {
         
         System.out.println("En büyük sayı :"+max+" sayının indeksi: "+(maxyer+1));
         System.out.println("En küçük sayı :"+min+" sayının indeksi: "+(minyer+1));
+        Arrays.sort(dizi);  //otomatik olarak dizideki elemanları küçükten büyüğe sıralıyoruz
+        for (int i = 0; i < sayi; i++) {
+            System.out.print(dizi[i] + " < ");  //bu dizideki elemanları sıralamıştık bunları yazdırıyoruz
+        }
         
     }
 }
