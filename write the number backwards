@@ -1,0 +1,21 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        int a;
+        do{
+            System.out.println("tam sayı giriniz: ");
+            a=input.nextInt();
+            
+        }while(a<0);
+        
+        System.out.println("tersten: ");
+        
+        while(a!=0){
+            System.out.print(a%10); //a sayısını 10 bölünce kalanı yazdırıyoruz print kullanmamızın nedeni yan yana yazdırabilmek
+            a/=10; //a sayısını 10 bölünce kalanı yazdırdığımız için artık birler basamağına ihtiyacımız kalmadı bu nedenle burada a sayısını 10 bölüp a sayısına kaydediyoruz
+            //mesela a=273 ise 273/10=27 kalan 3, 3 ü yazdırdığımız için 3 ü a'nın içinden bu şekilde siliyoruz ve yerine 27 yi tanımlıyoruz a=a/10 nun kısa yazılımıdır
+        }
+    }
+}
