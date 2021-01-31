@@ -1,0 +1,21 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.println("Elinizdeki su halinin sıcaklığını giriniz:");
+        double N = input.nextDouble();
+ 
+        if(N>=100){  //eğer girilen değer 100 veya daha büyükse buraya gir dedik
+            System.out.println( "Gaz durumundadır." );
+        }
+
+        else if(N>0){  //eğer önceki if'e girmediyse ve girilen değer sıfırdan büyükse buraya gir dedik
+            System.out.println( "Sıvı durumundadır." );
+        }
+
+        else if(N<=0){  //eğer önceki iflere girmediyse ve girilen değer 0'a eşit veya 0'dan büyükse buraya gir dedik
+            System.out.println( "Katı durumundadır" );
+        }
+    }
+}
