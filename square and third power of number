@@ -2,12 +2,12 @@ package ANusret;
 import java.util.Scanner;
 public class ANusret {
     public static void main(String[] args) {
-    Scanner input=new Scanner(System.in);
-    System.out.println("bir sayı giriniz:");
-    double N = input.nextDouble();  //kullanıcıdan sayı aldık
-    double A=Math.pow(N, 3);  //sayının küpünü aldık
-    double B= Math.sqrt(N);  //sayının karekökünü aldık
-    System.out.println( "Sayınızın küpü: "+A);  //sayının küpünü(üçüncü kuvveti) yazdırdık
-    System.out.println("Sayınızın karekökü: "+B);  //sayının karekökünü yazdıkdık
+        Scanner input=new Scanner(System.in);
+        System.out.println("bir sayı giriniz:");
+        double N = input.nextDouble();  //kullanıcıdan sayı aldık
+        double A=Math.pow(N, 3);  //sayının küpünü aldık
+        double B= Math.sqrt(N);  //sayının karekökünü aldık
+        System.out.println( "Sayınızın küpü: "+A);  //sayının küpünü(üçüncü kuvveti) yazdırdık
+        System.out.println("Sayınızın karekökü: "+B);  //sayının karekökünü yazdıkdık
     }
 }
