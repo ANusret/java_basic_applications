@@ -5,7 +5,7 @@ public class ANusret {
     public static void main(String[] args) {
        Scanner input=new Scanner(System.in);
        Random r=new Random();
-       int can=5; //canıızı 5 olarak tanımladık
+       int can=5; //canızı 5 olarak tanımladık
        while(can>0) {  //can 0 veya 0 altında olana kadar devam edecek bir while döngüsü açtık
             System.out.println("Canınız: "+can);
             System.out.println("İşlem seçiniz : ");
