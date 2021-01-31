@@ -1,0 +1,19 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.println("İlk sayınızı giriniz:");
+        int A = input.nextInt();  //ilk sayıyı aldık
+        System.out.println("İkinci sayınızı giriniz:");
+        int B = input.nextInt();  //ikinci sayıyı aldık
+        
+        if(A>B){  //eğer a sayısı b sayısından büyük ise buraya gir dedik
+            System.out.println( A+" sayısı büyüktür.");
+        }
+    
+        else{  //yukarıdaki if'e girmediysen buraya gir dedik
+            System.out.println( B+" sayısı büyüktür."); 
+        }
+    }
+}
