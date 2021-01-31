@@ -1,0 +1,36 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        int sayi;
+        System.out.println("Kaç tane sayı girceksiniz?");
+        sayi=input.nextInt();
+        
+        int dizi[]=new int[sayi];  //bir a dizisi tanımladık ve bu dizinin sayi kadar elemanı olsun dedik
+        for (int i = 0; i < sayi; i++) {
+            System.out.println((i+1)+". sayınızı giriniz:");
+            dizi[i]=input.nextInt();  //dizimizin her elemanı için kullanıcıdan sayılar alıyoruz
+        }
+        
+        int  max=dizi[0], maxyer = 0 ,min=dizi[0], minyer = 0;
+        
+        for (int i = 0; i < sayi; i++) {
+            if(dizi[i]>max){   //eğer dizimizin i'ninci elemanı max'dan büyükse buraya gir dedik
+                max=dizi[i]; //max'ı dizimizin i'ninci elemanına eşitledik
+                maxyer=i;  //maxyer'i dizimizin i'ninci yerine eşitledik
+            }
+        }
+        
+        for (int i = 0; i < sayi; i++) {
+            if(dizi[i]<min){  //eğer dizimizin i'ninci elemanı min'dan küçükse buraya gir dedik
+                min=dizi[i];  //min'i dizimizin i'ninci elemanına eşitledik
+                minyer=i;  //minyer'i dizimizin i'ninci yerine eşitledik
+            } 
+        }
+        
+        System.out.println("En büyük sayı :"+max+" sayının indeksi: "+(maxyer+1));
+        System.out.println("En küçük sayı :"+min+" sayının indeksi: "+(minyer+1));
+        
+    }
+}
