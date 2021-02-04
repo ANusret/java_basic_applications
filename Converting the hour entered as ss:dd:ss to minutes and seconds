@@ -1,0 +1,69 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+        Scanner input = new Scanner (System.in);
+        System.out.println("ss:dd:ss şeklinde saniyeye ve dakikaya çevirmek istediğiniz saati yazınız: ");
+        String giris=input.nextLine();  //saati aldık
+        int[] asciiValue=new int[6];
+        int[] numericValue=new int[6];
+        double toplamsn=0;
+        double toplamdk=0;
+        for (int i = 0; i < giris.length(); i++) {
+            if (i==0) {
+                asciiValue[0] = giris.charAt(0);  //girdiğimiz saat String komutunda bunun üzerinden işlem yapabilmemiz için integer a dönüştürmemmiz lazım o nedenle önce ascii koduna dönüştürüyoruz
+                numericValue[0] = Character.getNumericValue(asciiValue[0]);  //bu ascii kodunuda integer a dönüştürüyoruz
+                System.out.println("Saat*10 = "+numericValue[0]);
+            }
+            if (i==1) {  //ilk if deki işlemleri sırası ile her if de yapıyoruz
+                asciiValue[1] = giris.charAt(1);
+                numericValue[1] = Character.getNumericValue(asciiValue[1]);  
+                System.out.println("Saat*1 = "+numericValue[1]);
+            }
+            if (i==3) {
+                asciiValue[2] = giris.charAt(3);
+                numericValue[2] = Character.getNumericValue(asciiValue[2]);
+                System.out.println("Dakika*10 = "+numericValue[2]);
+            }
+            if (i==4) {
+                asciiValue[3] = giris.charAt(4);
+                numericValue[3] = Character.getNumericValue(asciiValue[3]);
+                System.out.println("Dakika*1 = "+numericValue[3]);
+            }
+            if (i==6) {
+                asciiValue[4] = giris.charAt(6);
+                numericValue[4] = Character.getNumericValue(asciiValue[4]);
+                System.out.println("Saniye*10 = "+numericValue[4]);
+            }
+            if (i==7) {
+                asciiValue[5] = giris.charAt(7);
+                numericValue[5] = Character.getNumericValue(asciiValue[5]);
+                System.out.println("Saniye*1 = "+numericValue[5]);
+            }
+        }
+        for (int i = 0; i < numericValue.length; i++) {
+            if (i==0) {
+                toplamsn+=numericValue[i]*36000;  //10 saat = 36000 saniye olduğu için çarpıyor ve toplamsn'de topluyoruz
+            }
+            if (i==1) {
+                toplamsn+=numericValue[i]*3600;  //1 saat = 3600 saniye olduğu için çarpıyor ve toplamsn'de topluyoruz
+            }
+            if (i==2) {
+                toplamsn+=numericValue[i]*600;  //10 dakika = 600 saniye olduğu için çarpıyor ve toplamsn'de topluyoruz
+            }
+            if (i==3) {
+                toplamsn+=numericValue[i]*60;  //1 dakika = 60 saniye olduğu için çarpıyor ve toplamsn'de topluyoruz
+            }
+            if (i==4) {
+                toplamsn+=numericValue[i]*10;  //10 saniye = 10 saniye olduğu için çarpıyor ve toplamsn'de topluyoruz
+            }
+            if (i==5) {
+                toplamsn+=numericValue[i];  //1 saniye = 1 saniye olduğu için çarpıyor ve toplamsn'de topluyoruz
+            }
+        }
+        System.out.println();
+        toplamdk=toplamsn/60;  //1 dakika = 60 saniye olduğu için bölüyor ve toplamdk'da topluyoruz
+        System.out.println("Girdiğiniz saat toplam "+toplamdk+" dakikadır.");
+        System.out.println("Girdiğiniz saat toplam "+toplamsn+" saniyedir.");
+    }
+}
