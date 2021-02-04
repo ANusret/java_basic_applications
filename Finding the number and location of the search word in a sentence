@@ -1,0 +1,33 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+        Scanner x = new Scanner(System.in);
+        System.out.println("Cümleyi giriniz: ");
+        String cumle = x.nextLine();  //cümleyi aldık
+        System.out.println("Aranıcak kelimenizi girin: ");
+        String aranan = x.next();  //kelimeyi aldık
+        String k[] = cumle.split(" ");  //cümle için de kelime aralarında " " (boşluk) olduğunu bildiğimiz için bir boşluktan başka bir boşluğa kadar olan karakterleri yani bir kelimeyi k dizisine eleman olarak yerleştirdik 
+        int top=0;
+        int []h = new int[k.length];  //k dizisinin eleman sayısı kadar elemana sahip olacak bir h dizisi açtık
+        for (int i = 0; i < k.length; i++) {
+            h[i] = k[i].length();  //bu h dizimizin elemanlarını k dizimizdeki kelimelerin harf sayısı olarak atadık örn: k dizisinin elemanı 'İstanbul' => h dizisinin elemanı '8'
+        }
+        for (int i = 0; i < k.length; i++) {
+            if (h[i]==aranan.length()) {  //h a uzunluğu tanımlanan kelimenin uzunluğu ile aranan kelimemizin uzunluğu aynı ise gir
+                for (int j = 0; j < h[i]; j++) {
+                    if(k[i].charAt(j)==aranan.charAt(j)){  //aranan elimemiz ile cümlede geçen kelimemizin harflerini tek tek karşılaştır
+                        if (j==h[i]-1) {  //son harfe kadar aynıysa aranan kelimemiz ile kelime aynıdır o zaman gir
+                            System.out.println("Aradığınız kelime "+(i+1)+". kelimedir");
+                            top++;  //aranan kelimemizden cümlede kaç tane olduğunu sayar
+                        }
+                    }
+                    else{  //aranan kelimemiz ile cümledeki kelimemizin harfleri uyuşmuyor ise gir
+                        break;  //içinde bulunduğu döngiyü bitirir bu sayede sıradaki kelimeye geçebiliriz
+                    }
+                }
+            }
+        }
+        System.out.println("Aradığınız kelimeden "+top+" tane vardır.");
+    }
+}
