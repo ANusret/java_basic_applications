@@ -1,0 +1,18 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.println("kelimenizi giriniz: ");
+        String kelime=input.next();  //kelimeyi aldık
+        char[] dizi=new char[kelime.length()];  //kelime ile aynı uzunlukta bir dizi tanımladık
+        for (int i = 0; i < kelime.length(); i++) {
+            dizi[i]=kelime.charAt(i);  //kelimenin her harfini dizinin bir elemanı olarak atadık
+        }
+        for (int i = 0; i < kelime.length(); i++) {
+            System.out.print(dizi[i]);  //dizinin i'nci elemanını yazdırdık print kullanmamızın nedeni aynı satırda yazmak istememiz
+            System.out.print(dizi[i]);  //farfi iki kere yazdırmak istediğimiz için tekrar print yaptık
+        }
+        System.out.println();  //güzel bir görünüm için ekledik eklemesenizde çalışır
+    }
+}
