@@ -1,0 +1,23 @@
+package keleime.indexli.soru;
+import java.util.Scanner;
+public class KeleimeIndexliSoru {
+    public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    
+    System.out.println("Cümle giriniz: ");
+    String cümle = input.nextLine(); //kullanıcıdan cümle aldık
+    
+    for (int i = 0; i < cümle.length(); i++) { //for da soldan sağa harfleri geziyoruz
+        
+        if (i%2==0) { //eğer i sayısını 2 ye bölünce 0 kalanlı bir bölme işlemi oluyorsa buraya gir 
+            System.out.print(Character.toUpperCase(cümle.charAt(i))); //for'daki karakteri (i'nci karakter) büyük yaz
+        }
+        
+        else{
+            System.out.print(Character.toLowerCase(cümle.charAt(i))); //for'daki karateri (i'nci karakter) küçük yaz
+            }
+        }
+        
+    System.out.println();  //güzel görünmesi için ekledik olmasada çalışır
+    }
+}
