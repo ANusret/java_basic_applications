@@ -1,0 +1,28 @@
+package kelimelerinbaşharfinibüyükyapan;
+import java.util.Scanner;
+public class Kelimelerinbaşharfinibüyükyapan {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.println("Cümlenizi giriniz:");
+        String cumle=input.nextLine();  //cümleyi aldık
+        String toplam= " " ;  //toplam adlı bir String açtık ve bunun başın boşluk tanımladık
+        toplam+=cumle;  //bu toplam String'ine cümlemizi de ekledik
+        char[]a=new char[toplam.length()];  //toplam'uzunluğunda bir char dizisi açtık
+        
+        for (int i = 1; i < a.length; i++) {
+        
+            if (toplam.charAt(i-1)== ' ') {  //eğer i-1'inci karakter boşluksa gir
+                a[i]=toplam.toUpperCase().charAt(i);  //a dizisinin i'nci elemanına toplamın i'nci karakterini büyük harf yaparak kaydettik
+            }
+            
+            else{  //yukarıdaki if'e girmediysen gir
+                a[i]=toplam.charAt(i);  //a dizisinin i'nci elemanına toplamın i'nci karakterini kaydettik
+            }
+        }
+        
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i]);  //a dizisinin i'nci elemanını yazdır (yan yana yazdırabilmek için print kullandık)
+        }
+        System.out.println();  //alt satıra geç dedik (güzel görünmesi için kullanmasak da olur)
+    }
+}
