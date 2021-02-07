@@ -2,11 +2,11 @@ package ANusret;
 import java.util.Scanner;
 public class ANusret {
     public static void main(String[] args) {
-        Scanner x = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Cümleyi giriniz: ");
-        String cumle = x.nextLine();  //cümleyi aldık
+        String cumle = input.nextLine();  //cümleyi aldık
         System.out.println("Aranıcak kelimenizi girin: ");
-        String aranan = x.next();  //kelimeyi aldık
+        String aranan = input.next();  //kelimeyi aldık
         String k[] = cumle.split(" ");  //cümle için de kelime aralarında " " (boşluk) olduğunu bildiğimiz için bir boşluktan başka bir boşluğa kadar olan karakterleri yani bir kelimeyi k dizisine eleman olarak yerleştirdik 
         int top=0;
         int []h = new int[k.length];  //k dizisinin eleman sayısı kadar elemana sahip olacak bir h dizisi açtık
