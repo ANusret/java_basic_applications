@@ -1,0 +1,41 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.println("TC kimlik numaranızı giriniz:" );
+        int[]tc=new int[11];
+        int a=0;
+        int toplam=0;
+        String tc1;
+        
+        while(a<1){  //doğru bir tc girene kadar(a 1'e eşit veya büyük olana kadar devam edecek while döngüsü)
+            do{
+            tc1=input.next();  //T.C numarasını aldık 
+            }while(tc1.length()>11 || tc1.length()<11);  //do while döngüsü ile 11 basamaklı olup olmadığını kontrol ettik
+            
+            for (int i = 0; i < tc.length; i++) {
+                tc[i] = Character.getNumericValue(tc1.charAt(i));  //tc[] dizisne girilen numaranın her hanesini sıra ile tanımlıyoruz
+                
+                if (i==tc.length-1) {  //eğer i T.C numarasının son hanesine eşit ise gir
+                }
+                
+                else{  //yukarıdaki if'e girmmediysen gir
+                toplam+=tc[i];  //toplam'a tc[i]'yi ekliyoruz
+                }
+            }
+            
+            int b=toplam%10;  //b ye T.C numarasının topladığımız ilk 10 hanesinin birler basamağını yazıyoruz ==>> sayıyı 10'a böl kalanı al demek
+            
+            if (b==tc[10]) {  //eğer b girilen T.C'nin son elemanına eşitse gir 
+                System.out.println("TC'niz geçerlidir.");  
+                a++;  //a yı bir arttırır ve bu şekilde while döngüsünü sonlandırır
+            }
+            
+            else{  //yukarıdaki if'e giremediysen gir
+                System.out.println("TC'niz geçerli değildir lütfen tekrar giriniz: ");
+                toplam=0;  //tekrar bir T.C girileceği için toplamı 0'a eşitledik ki bundan sonra yapılacak işlemleri etkilemesin
+            }
+        }
+    }
+}
