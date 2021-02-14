@@ -1,0 +1,26 @@
+package ANusret;
+import java.util.Random;
+public class ANusret {
+    public static void main(String[] args) {
+        Random r=new Random();
+        int kalan=0;
+        int[] id=new int[10];
+        do{  //do-while döngüsü açtık
+        for (int i = 0; i < 10; i++) {
+            id[i]=r.nextInt(10);  //id[] dizisinin i'nci elemanına random sayı(0-9) atadık
+        }
+        int toplam=0;
+        for (int i = 0; i < 10; i++) {
+            toplam+=id[i];  //id[] dizisindeki elemanları toplam'da topladık
+        }
+        kalan=toplam%10;  //kalanı 10'a böldük ve kalanı kalan olarak tanıttık
+        }while(kalan%2==1);  //eğer kalan 2'ye bölününce 1 kalıyorsa(son basamak tekse) döngüde başa dönülecek eğer değilse (son basamak çift ise) döngüden çık dedik
+        for (int i = 0; i < 10; i++) {
+            System.out.print(id[i]);
+            if(i==9){
+                System.out.print(kalan);
+            }
+        }
+        System.out.println();
+    }
+}
