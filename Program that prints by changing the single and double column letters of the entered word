@@ -1,0 +1,20 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.println("Kelime Giriniz:");
+        String kelime=input.next();  //kelimeyi aldık
+        if(kelime.length()%2==1){  //kelimedeki harflerin toplamı tek bir sayı ise sonuna boşluk ekleyerek devam ediyoruz
+            kelime+=" ";  //kelimenin sonuna boşluk ekledik
+        }
+        char[]yeni=new char[kelime.length()];
+        for (int i = 0; i <yeni.length; i+=2) {  //harflerin yerlerini değiştirdiğimiz for döngüsü
+            yeni[i]=kelime.charAt(i+1);
+            yeni[i+1]=kelime.charAt(i);
+        }
+        for (int i = 0; i <yeni.length; i++) { 
+            System.out.print(yeni[i]);
+        }
+    }
+}
