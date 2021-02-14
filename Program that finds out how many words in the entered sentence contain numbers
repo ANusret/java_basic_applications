@@ -1,0 +1,23 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in,"ISO-8859-9");  //Sisteme kullanıcı tarafından veri girilmesi için yazdık ve türkçe karakterleri tanımladık
+        System.out.println("Cümle giriniz: ");
+        String cumle=input.nextLine();  //bir cümle aldık
+        int[]sayı={'1','2','3','4','5','6','7','8','9'};  //sayıları bir dizide tanımladık
+        int sayac=0;
+        String kelime[]=cumle.split(" ");  //her boşluğa kadar olan bölümü kelime[] dizisinin içine yerleştirdik
+        for (int i = 0; i < kelime.length; i++) {
+            for (int j = 0; j < kelime[i].length(); j++) {
+                for (int k = 0; k < sayı.length; k++) {
+                    if (kelime[i].charAt(j)==sayı[k]) {  //eğer kelime[i]'nin j'nci sıradaki harfi sayı[] dizisinden bir elemana eşitse gir
+                    sayac++;  //sayacı bir arttır
+                }
+                }
+            }
+        }
+        System.out.println("Girdiğiniz cümle içinde sayı barındıran kelime sayısı: "+sayac);
+    }
+    
+}
