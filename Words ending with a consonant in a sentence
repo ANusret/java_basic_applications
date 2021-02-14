@@ -1,0 +1,21 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in,"ISO-8859-9");  // (,"ISO-8859-9") ==>> bu ifade java da türkçe karakterleri gösteren ifadedir
+        System.out.println("Cümlenizi giriniz:");
+        String cumle=input.nextLine();  //cümleyi aldık
+        String toplam=cumle;  //toplam'a cümleyi eşitledik
+        toplam+=' ';  //toplam'ın sonuna ' ' (boşluk) tanımladık bu sayede kelimlerin hepsinden sonra boşluk var 
+        int sayac=0;
+        for (int i = 0; i < toplam.length(); i++) {
+            if(toplam.charAt(i)==' '){  //i'nci karakter boşluksa
+                    if(toplam.charAt(i-1)!='a' && toplam.charAt(i-1)!='e' && toplam.charAt(i-1)!='ı' && toplam.charAt(i-1)!='i' && toplam.charAt(i-1)!='o' && toplam.charAt(i-1)!='ö' && toplam.charAt(i-1)!='u' && toplam.charAt(i-1)!='ü'){
+                        //yukarıdaki if de kelimenin son harfinin sesli bir harf olup olmadığını test ettik ve eğer son harfi sesli değil ise buraya girdik
+                        sayac++;  //sayac'ı bir arttırdık
+                    }
+            }
+        }
+        System.out.println("Cümlenizde sesli harf ile biten kelime sayısı: "+sayac);
+    }
+}
