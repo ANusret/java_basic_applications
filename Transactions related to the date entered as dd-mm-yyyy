@@ -1,0 +1,105 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        int[] numericValue=new int[8];
+        int topLam=0;
+        int gun, ay, yiL, toplamgun, toplamsaat;
+        double toplamay;
+        String cumle;
+        
+        do{  //do while döngüsü açtık
+            System.out.println("gg/aa/yyyy şeklinde tarih girin");
+            cumle=input.nextLine();
+            
+            for (int i = 0; i < cumle.length(); i++) {
+            
+                if (i==0) {
+                    numericValue[0] = Character.getNumericValue(cumle.charAt(0));  //String ile alınan sayısal bir değeri değeri bozmadan integer'a dönüştürüyoruz
+                }
+                
+                if (i==1) {
+                    numericValue[1] = Character.getNumericValue(cumle.charAt(1));
+                }
+                
+                if (i==3) {
+                    numericValue[2] = Character.getNumericValue(cumle.charAt(3));
+                }
+                
+                if (i==4) {
+                    numericValue[3] = Character.getNumericValue(cumle.charAt(4));
+                }
+                
+                if (i==6) {
+                    numericValue[4] = Character.getNumericValue(cumle.charAt(6));
+                }
+                
+                if (i==7) {
+                    numericValue[5] = Character.getNumericValue(cumle.charAt(7));
+                }
+                
+                if (i==8) {
+                    numericValue[6] = Character.getNumericValue(cumle.charAt(8));
+                }
+                
+                if (i==9) {
+                    numericValue[7] = Character.getNumericValue(cumle.charAt(9));
+                }
+            }
+            gun=(numericValue[0]*10)+(numericValue[1]); //gün değerini basamaklarıyla hesaplıyoruz
+            ay=(numericValue[2]*10)+(numericValue[3]);  //ay değerini basamaklarıyla hesaplıyoruz
+            yiL=(numericValue[4]*1000)+(numericValue[5]*100)+(numericValue[6]*10)+(numericValue[7]);  //yıl değerini basamaklarıyla hesaplıyoruz
+        }while(gun>31 || ay>12 || ay==2 && yiL%4==0 && gun>29 || ay==2 && yiL%4!=0 && gun>28); 
+        //eğer gün değeri 31 den büyükse veya ay değeri 12 den büyükse veya yıl iki iken ve 4'e bölünebiliyor iken 29'dan veya 4'e bölünemiyorken 28'den büyükse do while döngüsü başa sarar
+            
+            int i;
+            
+            for (i=1;i<ay;i++){
+            
+                if (i<=7){  //eğer i 7'den küçükse gir
+                
+                    if(i==2){
+                    
+                        if( yiL%4==0 && yiL%100!=0 || yiL%400==0 ){  //eğer yıl 4'e  bölünebiliyorsa ve yüze bölünemiyorsa veya yıl 400'e bölünebiliyorsa gir
+                            topLam=topLam+29;
+                        }
+                        
+                        else{  //yukarıdaki if'e girmediysen gir
+                            topLam=topLam+28;
+                        }
+                    }
+                    
+                    else if (i%2==0){  //yukarıdaki ife girmediyse ve i 2'ye bölünebiliyorsa gir
+                        topLam=topLam+30;
+                    }
+                    
+                    else{  //yukarıdaki if'lere girmediyse gir
+                        topLam=topLam+31;
+                    }
+                }
+                
+                else{  //yukarıdaki if'e girmediyse gir  92-51
+                    if (i%2==0){  //eğer i'yi 2'ye bölünce kalan 0 ise gir
+                        topLam=topLam+31;
+                    }
+                    
+                    else{  //eğer yukarıdaki if'e girmediysen gir
+                        topLam=topLam+30;
+                    }
+                }
+            }
+            topLam+=gun;  //topLam'ı gün ile topla
+            System.out.println("Girdiğiniz tarihi "+yiL+" yilinin "+ay+". ayının "+gun+". gunu!");
+            System.out.println("Girdiğiniz tarih "+yiL+". yılın "+topLam+". günüdür.");
+            //ay hesabı
+            toplamay=(yiL*12)+ay+(gun/30);
+            System.out.println("Girdiğiniz tarih içinde toplam "+toplamay+" ay içeriyor.");
+            //gün hesabı
+            toplamgun=(yiL*12*30)+((ay-1)*30)+gun;
+            System.out.println("Girdiğiniz tarih toplam "+toplamgun+" gün içeriyor.");
+            //saat hesabı
+            toplamsaat=toplamgun*24;
+            System.out.println("Girdiğiniz tarih toplam "+toplamsaat+" saat içeriyor.");
+    }
+}
