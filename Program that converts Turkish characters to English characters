@@ -1,0 +1,25 @@
+package ANusret;
+import java.util.Scanner;
+public class ANusret{
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in,"ISO-8859-9");
+        System.out.println("Lütfen bir kelime giriniz:");
+        String cumle=input.nextLine();  //cümleyi adlık
+        char[] harf=new char[cumle.length()];  //cümledeki karakterlerin uzunluğunda bir harf dizisi açtık
+        char[] krktr_tr={'Ç','ç','Ğ','ğ','İ','ı','ö','Ö','Ş','ş','Ü','ü'};  //Türkçe karakterleri tanımladığımız dizi
+        char[] krktr_ing={'C','c','G','g','I','i','o','O','S','s','U','u'};  //Türkçe karakterlerin İngilizcedeki karşılıklarını tanımladığımız dizi
+        for (int i = 0; i < cumle.length(); i++) {
+            harf[i]=cumle.charAt(i);  //cümledeki her harfi harf isimli dizimize eleman olarak atadık
+        }
+        for (int i = 0; i <cumle.length(); i++) {
+            for (int j = 0; j <krktr_tr.length; j++) {
+                if(cumle.charAt(i)==krktr_tr[j]){  //eğer cümledeki i'nci harf Türkçe karakterlerin tanımlı olduğu dizideki j'nci elemana eşitse gir
+                    harf[i]=krktr_ing[j];  //harf dizisindeki i'nci harfi krktr_ing dizisindeki j'nci harfe eşitle
+                }
+            }
+        }
+        for (int j = 0; j < harf.length; j++) {
+                System.out.print(harf[j]);  //cümleyi yazdırmamızı sağlayan harf dizisinin elemanlarının yazdırıldığı kısım
+            }
+    }   
+}
