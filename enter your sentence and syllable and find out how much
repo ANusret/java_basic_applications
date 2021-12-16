@@ -1,0 +1,37 @@
+package ANusret;
+import java.util.Scanner;
+public class JavaApplication163 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Bir cümle giriniz: ");
+        String cumle = input.nextLine();
+        System.out.println("Aradığınız heceyi giriniz :");
+        String hece = input.next();
+        String[] kelime = cumle.split(" ");
+        int itut, jtut;
+        int sayac = 0;
+        for (int i = 0; i < kelime.length; i++) {  //kelime dizisinin içindeyiz
+            itut = i;
+            for (int j = 0; j < kelime[i].length(); j++) {  //kelime dizisinin elemanını tarıyoruz
+                jtut = j;
+                if (kelime[i].charAt(j) == hece.charAt(0)) {  //kelime dizisinin harf 1 i ile hece harf 1 in kıyası
+                    for (int k = 0; k < hece.length(); k++) {  //hece kelimesinin harf taraması
+                        if (kelime[i].charAt(j) != hece.charAt(k)) {
+                            break;
+                        }
+                        j++;
+                        if (k == hece.length() - 1) {
+                            sayac++;
+                            System.out.print("Cümlenizin; ");
+                            System.out.print((i+1) + ". kelimesinde bulunuyor, ");
+                            System.out.println("");
+                        }
+                    }
+                }
+                j = jtut;
+            }
+            i = itut;
+        }
+        System.out.println("Toplamda " + sayac + " kadar bulunuyor.");
+    }
+}
